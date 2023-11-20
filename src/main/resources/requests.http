@@ -1,0 +1,10 @@
+GET localhost:8080/users/get
+
+###
+
+POST localhost:8080/users/addUser
+
+{
+"name" : "Sanyok"
+"email" : "green.cat@mail.ru"
+}

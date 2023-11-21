@@ -1,6 +1,6 @@
-create database ShopDB;
+create database if not exists ShopDB;
 use ShopDB;
-create table users (
+create table if not exists users (
     id bigint primary key auto_increment,
     email varchar(40),
     name varchar(20),

@@ -13,6 +13,7 @@ services:
       - MYSQL_DATABASE=ShopDB
       - MYSQLD_INIT_TIMEOUT=360
     volumes:
+      - "./sp-dbdata:/var/lib/mysql"
       - "./src/main/resources/dump/script.sql:/docker-entrypoint-initdb.d/script.sql"
   app:
     depends_on:

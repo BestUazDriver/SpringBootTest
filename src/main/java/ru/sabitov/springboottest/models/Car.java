@@ -2,15 +2,17 @@ package ru.sabitov.springboottest.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Builder
+@Entity
 @Table
-public class User {
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +22,8 @@ public class User {
     private String name;
 
     @Column
-    private String email;
+    private String model;
 
-    @Column
-    private Role role;
-
-    public enum Role {
-        USER,
-        ADMIN,
-        SELLER}
+    @Column(name = "horse_power")
+    private Integer horsePower;
 }

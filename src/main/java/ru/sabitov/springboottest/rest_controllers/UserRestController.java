@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.sabitov.springboottest.dto.SignUpDto;
 import ru.sabitov.springboottest.models.User;
-import ru.sabitov.springboottest.services.UserServiceImpl;
+import ru.sabitov.springboottest.repository.UserRepositoryImpl;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class UserRestController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserRepositoryImpl userService;
 
     @GetMapping("/get")
     public ResponseEntity<List<User>> getAllUsers() {

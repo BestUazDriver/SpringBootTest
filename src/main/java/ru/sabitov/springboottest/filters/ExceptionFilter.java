@@ -7,7 +7,7 @@ import jakarta.servlet.ServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
-import ru.sabitov.springboottest.services.UserService;
+import ru.sabitov.springboottest.repository.UserRepository;
 
 import java.io.IOException;
 
@@ -15,10 +15,10 @@ import java.io.IOException;
 public class ExceptionFilter extends GenericFilterBean {
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-
+        System.err.println(userRepository.getAllUsers());
     }
 }

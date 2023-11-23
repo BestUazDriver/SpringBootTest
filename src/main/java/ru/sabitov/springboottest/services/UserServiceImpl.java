@@ -1,35 +1,25 @@
 package ru.sabitov.springboottest.services;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
-import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.sabitov.springboottest.models.User;
+import ru.sabitov.springboottest.repository.UserRepository;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private EntityManager entityManager;
-
+    private UserRepository userRepository;
     @Override
-    public List<User> getAllUsers(){
-        return (List<User>) entityManager.createQuery("from User").getResultList();
+    public List<User> getAllUsers() {
+        return userRepository.getAllUsers();
     }
 
     @Override
-    @Transactional
-    public void save(User user) {
-        entityManager.merge(user);
-    }
-
-    @Override
-    public User getUserById(Long id) {
-        Query query = entityManager.createQuery("from User where id = :id", User.class);
-        query.setParameter("id", id);
-        return (User) query.getSingleResult();
+    public User getUserById(Long id){
+        return userRepository.getUserById(id);
     }
 }

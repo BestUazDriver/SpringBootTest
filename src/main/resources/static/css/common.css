@@ -13,3 +13,12 @@ body{
     border-width: 2px;
     border-style: solid;
 }
+.main-content table th{
+    background-color: brown;
+}
+.main-content table tr{
+    background-color: darkgreen;
+}
+.main-content table td{
+    background-color: blueviolet;
+}

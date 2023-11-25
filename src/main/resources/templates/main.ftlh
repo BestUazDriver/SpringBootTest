@@ -11,6 +11,18 @@
 <body>
 <div class="main-content">
     <p>Hello</p>
+    <table>
+        <tr>
+            <th>Car</th>
+            <th>Horse Power</th>
+        </tr>
+        <#list cars as i>
+            <tr>
+                <td>${i.getName()!"Unknown"}</td>
+                <td>${i.getHorsePower()!"Unknown"}</td>
+            </tr>
+        </#list>
+    </table>
 </div>
 </body>
 </html>

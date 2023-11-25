@@ -19,6 +19,6 @@ public class ExceptionFilter extends GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.err.println(userRepository.getAllUsers());
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 }

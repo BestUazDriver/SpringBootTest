@@ -15,7 +15,6 @@ public class MainController {
 
     @GetMapping
     public String getMainPage(){
-        System.err.println("Main controller worked");
         return "main";
     }
 }

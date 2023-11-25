@@ -8,10 +8,10 @@ public class SignUpDto {
     private String name;
     private String email;
 
-    public User getUser(){
+    public static User getUser(SignUpDto signUpDto){
         User user = new User();
-        user.setName(this.name);
-        user.setEmail(this.email);
+        user.setName(signUpDto.name);
+        user.setEmail(signUpDto.email);
         return user;
     }
 }

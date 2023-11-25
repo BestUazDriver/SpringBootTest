@@ -23,7 +23,7 @@ public class UserRestController {
 
     @PostMapping(value = "/addUser")
     public ResponseEntity<User> addUser(SignUpDto userDto) {
-        User user = userDto.getUser();
+        User user = SignUpDto.getUser(userDto);
         userService.save(user);
         return ResponseEntity.ok(userService.getUserById(user.getId()));
     }

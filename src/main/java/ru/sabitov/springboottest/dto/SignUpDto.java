@@ -1,8 +1,10 @@
 package ru.sabitov.springboottest.dto;
 
 
+import lombok.Data;
 import ru.sabitov.springboottest.models.User;
 
+@Data
 public class SignUpDto {
 
     private String name;

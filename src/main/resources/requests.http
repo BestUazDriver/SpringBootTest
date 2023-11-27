@@ -1,10 +1,11 @@
-GET localhost:8080/users/get
+GET localhost:8082/users/get
 
 ###
 
-POST localhost:8080/users/addUser
+POST localhost:8082/users/addUser
+Content-Type: application/json
 
 {
-"name" : "Sanyok"
+"name" : "Sanyok",
 "email" : "green.cat@mail.ru"
 }

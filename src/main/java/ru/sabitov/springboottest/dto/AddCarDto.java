@@ -1,7 +1,9 @@
 package ru.sabitov.springboottest.dto;
 
+import lombok.Data;
 import ru.sabitov.springboottest.models.Car;
 
+@Data
 public class AddCarDto{
     private String name;
     private String model;

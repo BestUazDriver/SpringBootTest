@@ -22,7 +22,7 @@ public class CarRestController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Car> addCar(@RequestBody AddCarDto carDto){
+    public ResponseEntity<Car> addCar(@RequestBody AddCarDto carDto) {
         return ResponseEntity.ok(carService.saveCar(AddCarDto.getCar(carDto)));
     }
 }

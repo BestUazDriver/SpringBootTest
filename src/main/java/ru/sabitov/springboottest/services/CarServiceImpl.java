@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
+    private final CarRepository carRepository;
+
     @Autowired
-    private CarRepository carRepository;
+    public CarServiceImpl(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
     @Override
     public List<Car> getAll() {

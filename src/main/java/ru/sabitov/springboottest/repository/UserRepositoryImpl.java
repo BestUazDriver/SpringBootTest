@@ -12,12 +12,16 @@ import java.util.List;
 @Service
 public class UserRepositoryImpl implements UserRepository {
 
+    private final EntityManager entityManager;
+
     @Autowired
-    private EntityManager entityManager;
+    public UserRepositoryImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
-    public List<User> getAllUsers(){
-        return (List<User>) entityManager.createQuery("from User").getResultList();
+    public List<User> getAllUsers() {
+        return entityManager.createQuery("from User", User.class).getResultList();
     }
 
     @Override

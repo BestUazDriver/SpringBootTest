@@ -1,9 +1,12 @@
 package ru.sabitov.springboottest.rest_controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 import ru.sabitov.springboottest.dto.SignUpDto;
 import ru.sabitov.springboottest.models.User;
 import ru.sabitov.springboottest.repository.UserRepositoryImpl;
@@ -14,8 +17,12 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserRestController {
 
+    private final UserRepositoryImpl userService;
+
     @Autowired
-    private UserRepositoryImpl userService;
+    public UserRestController(UserRepositoryImpl userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/get")
     public ResponseEntity<List<User>> getAllUsers() {

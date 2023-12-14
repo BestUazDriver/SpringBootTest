@@ -15,5 +15,5 @@ public class FeatureEnum {
 
     @ManyToOne(targetEntity = Feature.class)
             @JoinColumn(name = "feature_id")
-    Feature features;
+    private Feature features;
 }

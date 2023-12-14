@@ -15,10 +15,12 @@ import java.util.List;
 public class ApplicationFeature {
 
     @Id
-    @Column(name = "application_id")
-    private Long applicationId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Id
+    @Column(name = "application_id")
+    private Long application_id;
+
     @ManyToOne(targetEntity = Feature.class, fetch = FetchType.EAGER, cascade = { CascadeType.REMOVE })
     @JoinColumn(name = "feature_id")
     private Feature feature;
@@ -26,11 +28,4 @@ public class ApplicationFeature {
     @ManyToOne(targetEntity = FeatureEnum.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "enum_value")
     private FeatureEnum enumValue;
-
-    @ManyToMany(targetEntity = FeatureEnum.class)
-    @JoinTable(name = "feature_enum_checked", joinColumns = {
-            @JoinColumn(name = "application_id", referencedColumnName = "application_id"),
-            @JoinColumn(name = "feature_id", referencedColumnName = "feature_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "feature_enum_id") })
-    private List<FeatureEnum> multValue;
 }

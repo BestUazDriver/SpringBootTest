@@ -20,7 +20,8 @@ public class Feature {
     @Column(nullable = false)
     private String type;
 
-    @OneToMany(targetEntity = FeatureEnum.class, mappedBy = "features", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToMany
+            @JoinTable(name = "application_feature", joinColumns = @JoinColumn(name = "feature_id", referencedColumnName = "id"))
     private List<FeatureEnum> enumValues;
 
     @Column(name = "has_default")

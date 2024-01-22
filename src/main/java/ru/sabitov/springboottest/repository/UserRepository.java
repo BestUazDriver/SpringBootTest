@@ -8,7 +8,7 @@ public interface UserRepository {
 
     User getUserById(Long id);
 
-    void save(User user);
+    User save(User user);
 
     List<User> getAllUsers();
 

@@ -36,4 +36,9 @@ public class UserRepositoryImpl implements UserRepository {
         query.setParameter("id", id);
         return (User) query.getSingleResult();
     }
+
+    @Override
+    public User findByUsername(String username) {
+        return entityManager.createQuery("from User where email = :username", User.class).setParameter("username", username).getSingleResult();
+    }
 }

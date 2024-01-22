@@ -6,10 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
@@ -18,6 +15,10 @@ import lombok.NoArgsConstructor;
 @Table
 @Builder
 public class User {
+
+    public enum State {
+        CONFIRMED, NOT_CONFIRMED, DELETED, BANNED
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +29,9 @@ public class User {
 
     @Column
     private String email;
+
+    @Column
+    private String password;
 
     @Column
     private Role role;
